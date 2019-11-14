@@ -4,10 +4,10 @@ import { useStaticQuery, Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 
-const IndexPage = () => {
+const MultiFamilyPage = () => {
   const images = useStaticQuery(graphql`
     {
-      allFile(filter: { sourceInstanceName: { eq: "images-student" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "images-multi" } }) {
         edges {
           node {
             relativePath
@@ -21,10 +21,9 @@ const IndexPage = () => {
       }
     }
   `)
-  console.log("total images:", images.allFile.edges.length)
   return (
     <Layout>
-      <Link to="/multi-family">Multi Family Housing</Link>
+      <Link to="/">Student Housing</Link>
       <div
         style={{
           display: "grid",
@@ -36,6 +35,7 @@ const IndexPage = () => {
           const domain = edge.node.relativePath
             .replace(/^[0-9]+(_)/gi, "")
             .replace(".jpg", "")
+            .replace("error_", "")
 
           return (
             <div key={`${edge.node.relativePath}`} style={{ padding: 10 }}>
@@ -49,4 +49,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default MultiFamilyPage
