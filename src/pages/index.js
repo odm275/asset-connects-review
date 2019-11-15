@@ -42,19 +42,25 @@ const IndexPage = () => {
             .replace(".jpg", "")
             .replace("error_", "")
           var regex = /prod.ach.poetic-ach/g
+          var regex2 = /error/g
+
+          const pupError = regex2.test(edge.node.relativePath)
 
           const num = parseInt(edge.node.relativePath.split("_")[0])
           const isStaging = regex.test(domain)
+
           return (
             <div
               key={`${edge.node.relativePath}`}
               style={{
                 padding: 15,
-                border: isStaging ? "4px solid red" : "4px solid blue",
+                border:
+                  isStaging || pupError ? "4px solid red" : "4px solid blue",
               }}
             >
               <h2>#{num}</h2>
-              <h3>
+
+              <h3 style={{ color: (isStaging || pupError) && "red" }}>
                 {isStaging ? "Staging site. We probably don't need this" : null}
               </h3>
               <a href={`http://${domain}`}>{domain}</a>
