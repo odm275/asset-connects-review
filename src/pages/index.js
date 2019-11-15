@@ -41,14 +41,22 @@ const IndexPage = () => {
             .replace(/^[0-9]+(_)/gi, "")
             .replace(".jpg", "")
             .replace("error_", "")
-          const num = parseInt(edge.node.relativePath.split("_")[0])
+          var regex = /prod.ach.poetic-ach/g
 
+          const num = parseInt(edge.node.relativePath.split("_")[0])
+          const isStaging = regex.test(domain)
           return (
             <div
               key={`${edge.node.relativePath}`}
-              style={{ padding: 15, border: "4px solid red" }}
+              style={{
+                padding: 15,
+                border: isStaging ? "4px solid red" : "4px solid blue",
+              }}
             >
               <h2>#{num}</h2>
+              <h3>
+                {isStaging ? "Staging site. We probably don't need this" : null}
+              </h3>
               <a href={`http://${domain}`}>{domain}</a>
               <Img fluid={edge.node.childImageSharp.fluid} />
             </div>
