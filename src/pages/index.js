@@ -28,7 +28,7 @@ const IndexPage = () => {
   })
   return (
     <Layout>
-      <Link to="/">Student Housing</Link>
+      <Link to="/multi-family">Multi Family Housing</Link>
       <div
         style={{
           display: "grid",
