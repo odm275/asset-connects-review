@@ -63,7 +63,7 @@ const IndexPage = () => {
               <h3 style={{ color: (isStaging || pupError) && "red" }}>
                 {isStaging ? "Staging site. We probably don't need this" : null}
               </h3>
-              <a href={`http://${domain}/media`}>{domain+'/media'}</a>
+              <a href={`http://${domain}/media`}>{domain.trim()+'/media'}</a>
               <Img fluid={edge.node.childImageSharp.fluid} />
             </div>
           )
