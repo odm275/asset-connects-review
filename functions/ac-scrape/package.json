@@ -1,0 +1,10 @@
+{
+  "name": "ac-scrape",
+  "version": "1.0.0",
+  "main": "ac-scrape.js",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "request-promise": "^4.2.5"
+  }
+}
